@@ -73,20 +73,23 @@ This turns difficulty calibration into something you can show someone. It also p
 Twelve nodes, labelled [A] to [L]. Reference data is built first, then generation, then a chain of gates, then storage, review, and export. This diagram shows the happy path, one pass through every gate; what happens after a gate fails is described below it, not drawn, because a single question's actual route branches too many ways to stay readable as arrows.
 
 ```
-[A] Seed corpus ──┐
-                  ├──► [C] Prompt templates ──► [D] Generator ──► [E] Deterministic validator
-[B] Constraint files ──┘                                                   │
-                                                                            ▼
-                                                                    [F] Auditor
-                                                                            │
-                                                                            ▼
-                                                             [G] Student gauntlet
-                                                                            │
-                                                                            ▼
-                                                              [H] Quality judge
-                                                                            │
-                                                                            ▼
-                                                                    [J] Store ──► [K] Human review ──► [L] Export
+[A] Seed corpus ──────┐
+                      ├──► [C] Prompt templates ──► [D] Generator
+[B] Constraint files ─┘                              │
+                                                     ▼
+                                                    [E] Deterministic validator
+                                                     │
+                                                     ▼
+                                                    [F] Auditor
+                                                     │
+                                                     ▼
+                                                    [G] Student gauntlet
+                                                     │
+                                                     ▼
+                                                    [H] Quality judge
+                                                     │
+                                                     ▼
+            [L] Export  ◄──  [K] Human review  ◄──  [J] Store
 ```
 
 The order of the gates is deliberate. [E] costs nothing to run, so it runs on everything and rejects structurally broken output before any paid call. [F] is cheap in most cases and screens provenance, the one failure that cannot be repaired. [G] measures difficulty, the failure most likely to occur. [H] is the most expensive judgment, so it runs last, only on questions that already survived the cheaper checks.
@@ -137,7 +140,13 @@ Free-response and constructed-answer question types, where there is no fixed opt
 
 ### Releases
 
-**A dataset published before human review ships on a prerelease channel**, versioned with a prerelease marker and labelled as such. There are three channels, and each makes a stronger claim than the one below it: `alpha`, where the questions cleared every automated gate; `beta`, where the same questions ship once those gates have measured error rates; and `stable`, which contains only questions a human accepted one by one. Provenance does not depend on review, so all three make the same claim about origin. What the prerelease channels withhold is the claim about quality. The rule, including the exit criterion an uncalibrated channel has to state up front so that it cannot become permanent, is in [ARCHITECTURE.md](ARCHITECTURE.md), under node [L].
+**A dataset published before human review ships on a prerelease channel**, versioned with a prerelease marker and labelled as such. There are three channels, and each makes a stronger claim than the one below it:
+
+- `alpha`: the questions cleared every automated gate
+- `beta`: the same questions, shipped once those gates have measured error rates
+- `stable`: only questions a human accepted one by one
+
+Provenance does not depend on review, so all three make the same claim about origin. What the prerelease channels withhold is the claim about quality. The rule, including the exit criterion an uncalibrated channel has to state up front so that it cannot become permanent, is in [ARCHITECTURE.md](ARCHITECTURE.md), under node [L].
 
 ## Working with this repository
 
