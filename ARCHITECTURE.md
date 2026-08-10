@@ -129,6 +129,10 @@ One versioned template per question type. Templates take the constraint excerpt,
 
 Versions are never edited in place. A changed template becomes a new version, so questions generated under an earlier version can still be traced and the manifest keeps its meaning.
 
+**Version each template with a plain incrementing integer, one counter per template name, not semver.** `grammar_mc.v1`, `grammar_mc.v2`, and so on. A template has no downstream consumer that needs a compatibility contract: nothing reads a template version and decides whether it is safe to adopt, the way a library consumer reads a semver major bump. Semver would only import a decision nobody can settle, which wording change counts as major versus minor, for no benefit. An integer says exactly what the rule above requires: this is a later version of that template, made after the one before it.
+
+**Record a content hash of the template body alongside the integer.** The integer is easy to read but depends on someone remembering to bump it by hand. The hash is derived from the file itself and cannot fall out of sync with what it names. This is a different hash from the assembled-prompt hash logged per call at [D]: that one covers the template after its variables are filled in for one specific call, this one covers the template document itself, before substitution. Store both fields on the template version, the integer for a person reading the manifest and the hash for anyone who needs to prove which exact template text a given call used.
+
 ### [D] Generator
 
 Produces a candidate question: stem, options, correct answer, an explanation of why the answer is correct, and a justification for each distractor explaining why it fails.
