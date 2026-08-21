@@ -1,0 +1,5 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ḥikma">
+  <rect x="2" y="2" width="44" height="44" rx="9" fill="none" stroke="currentColor" stroke-width="2"></rect>
+  <path d="M15 11V28M33 11V28M15 19.5H33" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"></path>
+  <circle cx="24" cy="35" r="3" fill="currentColor"></circle>
+</svg>
