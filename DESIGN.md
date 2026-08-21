@@ -2,9 +2,9 @@
 
 حكمة · Ḥikma · ヒクマ
 
-**This is the reference design system for Hikma implementations: a complete set of colour, type, spacing, and component conventions, published so that an implementation has a working default instead of a blank page.** The single most important point: it is a reference, not a requirement. Any implementation may replace it with a visual identity of its own, with one firm limit: that identity must not imitate the examining body's. Below: how to use or replace this system, that limit in full, then the principles, marks, colour, type, spacing, components, accessibility, licensing, and the token contract.
+**This is the reference design system for Hikma implementations. It is a complete set of colour, type, spacing, and component conventions, published so that an implementation starts with a working default, not with nothing.** The single most important point: it is a reference, not a requirement. An implementation may replace it with its own visual identity, with one firm limit: that identity must not imitate the examining body's. Below: how to use or replace this system, that limit in full, then the principles, marks, colour, type, spacing, components, accessibility, licensing, and the token contract.
 
-> **Status: reference.** `core` is a specification repository and ships no stylesheet, font, or asset files. This document is the source of the values; an implementation builds them into its own tokens.
+> **Status: reference.** `core` is a specification repository and ships no stylesheet, font, or asset files. This document is the source of the values. An implementation builds them into its own tokens.
 
 ## Contents
 
@@ -26,35 +26,35 @@
 
 ## 1. Reference only
 
-Nothing in this document binds an implementation. It exists because most of the design decisions a question bank needs are the same across exams, and making them again in every repository wastes effort and produces multiple interfaces that disagree with each other. Three ways to use it, all fine:
+Nothing in this document binds an implementation. Most of the design decisions a question bank needs are the same across exams. Making these decisions again in every repository wastes effort, and it produces interfaces that disagree with each other. There are three ways to use this document, all fine:
 
 - **Adopt it.** Build the tokens in section 11 from the values here and use the component conventions as written. This is the path the reference implementation takes.
-- **Fork it.** Keep the structure, including the token names, the shape of the ramps, the accessibility floor, and the rule that colour never carries meaning alone, and replace the hues and typefaces with your own.
+- **Fork it.** Keep the structure: the token names, the shape of the ramps, the accessibility floor, and the rule that colour never carries meaning alone. Replace the hues and typefaces with your own.
 - **Replace it.** Design something new from scratch.
 
-Section 2 does not change across those three, because it is not a design preference. It is the visual half of the naming rule in [README.md](README.md#contributing), and it keeps the project clear of a claim it has never made.
+Section 2 stays the same across all three, because it is not a design preference. It is the visual half of the naming rule in [README.md](README.md#contributing), and it keeps the project clear of a claim it has never made.
 
-Two rules bind every implementation and survive any redesign: **colour never carries meaning alone** (see section 3) and **body text meets WCAG 2.1 AA** (see section 9). Those are accessibility floors, not matters of taste, and a question bank that fails them is broken however it looks.
+Two rules bind every implementation and survive any redesign: **colour never carries meaning alone** (see section 3) and **body text meets WCAG 2.1 AA** (see section 9). These are accessibility floors, not a matter of taste. A question bank that fails them is broken, however it looks.
 
 ## 2. Do not adopt the examining body's visual identity
 
-Hikma targets exams whose names, logos, and materials belong to other organisations. The project is independent, is not affiliated with or endorsed by any examining body, and does not want to appear otherwise. Using an exam name to say which exam a pipeline targets is a normal and lawful use of the name. Making an implementation look like the body's own product is a different act, and it is the one that turns a descriptive use into an implied claim of affiliation. Do not do it, even a little, and even where you think you could defend it.
+Hikma targets exams whose names, logos, and materials belong to other organisations. The project is independent. It is not affiliated with, and not endorsed by, any examining body, and it must not appear to be. Using an exam name to say which exam a pipeline targets is a normal and lawful use of the name. Making an implementation look like the body's own product is a different act, and that act turns a fair descriptive use into a false claim of affiliation. Do not do it, even a little, even where you think you could defend it.
 
-Concretely, in any implementation, do not:
+In any implementation, do not:
 
 - **Reproduce the body's logo, wordmark, seal, or certificate design** anywhere, including favicons, avatars, social cards, README heroes, slide decks, and merchandise.
-- **Rebuild the body's palette**, whether by copying its published hex values or by sampling its site, prospectus, answer sheets, or certificates for a near match.
+- **Rebuild the body's palette.** Do not copy its published hex values, and do not sample its site, prospectus, answer sheets, or certificates to get a near match.
 - **Copy its typographic identity**, meaning its logotype lettering, its distinctive typeface pairing, or the way it sets its own level and score labels.
 - **Imitate the layout of its official surfaces**, including the score report, the certificate, the answer sheet, and the registration page, closely enough that a screenshot could be mistaken for the real thing.
 - **Use official exam paper or answer sheet artwork as a template**, in the product or in marketing.
-- **Set the exam name in the body's own lettering.** The only correct treatment is your own interface typeface, as ordinary text. The name describes scope, it is not a badge.
-- **Imply endorsement in visual shorthand**, for example a checkmark, seal, ribbon, or "official" styling next to the exam name.
+- **Set the exam name in the body's own lettering.** The only correct treatment is your own interface typeface, set as ordinary text. The name describes scope. It is not a badge.
+- **Suggest endorsement with a visual symbol**, for example a checkmark, seal, ribbon, or "official" styling next to the exam name.
 
 And do:
 
-- **Choose from your own ramp first**, then compare the result with the body's public material and change anything that lands close. When you are unsure, take the more different hue, never the closer one. No design goal requires looking like theirs.
+- **Choose from your own ramp first.** Then compare the result with the body's public material, and change anything that lands close. When you are unsure, take the more different hue, never the closer one. No design goal requires looking like theirs.
 - **Keep the non-affiliation disclaimer on every public surface**, in the interface itself and not only in a README. Section 10 gives the wording.
-- **Attribute the marks you name.** Exam names are trademarks of their owners, they appear in an implementation only to describe which exam it targets, and the README says so.
+- **Attribute the marks you name.** Exam names are trademarks of their owners. They appear in an implementation only to describe which exam it targets, and the README says so.
 
 This system applies the rule to itself. The level badge hues in section 8 come from Hikma's own palette, chosen under this rule so that the order can be seen, cool at the easiest band and warm at the hardest, not to match any official colour scheme. The mark in section 4 is a letter from the project's own name. Neither borrows from any exam body, and anything that replaces them should be able to say the same.
 
@@ -63,7 +63,7 @@ This system applies the rule to itself. The level badge hues in section 8 come f
 1. **Evidence over assertion.** Every question shows its provenance: model, prompt version, run ID, git SHA. The `ProvenanceBlock` is the main component of the system, not a footnote.
 2. **Difficulty is measured, not declared.** Levels come from persona runs that measure them. Never style a level as a claim of authority.
 3. **Two licences, never one.** Dataset and code are governed separately and must never appear as one combined mark.
-4. **Colour never carries meaning alone.** Every ability band shows its label; every status shows a word.
+4. **Colour never carries meaning alone.** Every ability band shows its label. Every status shows a word.
 
 ## 4. Brand marks
 
@@ -73,23 +73,23 @@ This system applies the rule to itself. The level badge hues in section 8 come f
 | Wordmark | [`logo-wordmark.svg`](assets/logo-wordmark.svg) | Headers, README hero |
 | Mono / one-colour | `*-mono.svg` | Stamps, embroidery, single-ink print |
 
-The files ship with the reference implementation, not with this repository. `core` carries the specification of the mark, which is what follows, so that a redrawn or re-exported version can be checked against it.
+The files ship with the reference implementation, not with this repository. `core` carries the specification of the mark instead, which follows below, so that a redrawn or re-exported version can be checked against it.
 
-The mark is **Ḥ**: the Latin letter H carrying a dot below it. That is the standard romanization of the Arabic **ح** (*ḥāʾ*), the first letter of حكمة, "wisdom". In the mark the dot is not decoration and it is not optional. Draw the mark without it and what is left is a plain H, which is a different letter and not this mark. The idea: **a claim above, and the evidence that supports it below.**
+The mark is **Ḥ**: the Latin letter H with a dot below it. That is the standard romanization of the Arabic **ح** (*ḥāʾ*), the first letter of حكمة, "wisdom". In the mark, the dot is not decoration, and it is not optional. Draw the mark without it and what is left is a plain H, a different letter, not this mark. The idea: **a claim above, and the evidence that supports it below.**
 
 The written name follows a separate rule. **Ḥikma** is the default spelling and plain **Hikma** is also correct, and neither spelling carries the dot into a URL, a domain, or a file name. See `AGENTS.md` under Naming. ヒクマ, in the header above, is the official Japanese transliteration of the name. The mark keeps its dot in every size and every context.
 
 The Arabic ح carries no dot of its own. A dot below it makes ج (*jīm*) and a dot above it makes خ (*khāʾ*). The dot belongs to the transliteration alone, so it appears on the Latin Ḥ and never on the Arabic letter.
 
-Sizes: the monogram holds down to 16px and the wordmark down to 96px wide. Below 20px the inner border drops and the H and its dot carry the mark alone. Keep the dot in rose-350, never rosewood, because rosewood on ink-700 is 1.52:1 and disappears at that size (see section 9). Clear space on every side is the height of the dot.
+Sizes: the monogram holds down to 16px and the wordmark down to 96px wide. Below 20px the inner border drops, and the H and its dot carry the mark alone. Keep the dot in rose-350, never rosewood: rosewood on ink-700 is 1.52:1 contrast and disappears at that size (see section 9). Clear space on every side equals the height of the dot.
 
 Never: drop the dot, move it above the letter, put a dot on the Arabic ح, skew or rotate the mark, re-weight the strokes, round the counter of the H into a circle, set the wordmark in another typeface, or place the mark on a colour outside the palette.
 
-This mark identifies the Hikma project. An implementation that keeps it says that it is a Hikma pipeline, which is accurate. An implementation that replaces this design system should replace the mark too rather than restyle it, because a changed Hikma mark still reads as the Hikma project rather than as your fork.
+This mark identifies the Hikma project. An implementation that keeps it says that it is a Hikma pipeline, which is accurate. An implementation that replaces this design system should replace the mark too, rather than restyle it: a changed Hikma mark still reads as the Hikma project, not as your fork.
 
 ## 5. Colour
 
-Four locked founding hues, expanded into named ramps. Locked steps marked ◆, never replace them.
+There are four locked founding hues, expanded into named ramps. Locked steps are marked ◆. Never replace them.
 
 ### Ink (cool neutral: plum-charcoal to grey-green)
 
@@ -107,7 +107,7 @@ Four locked founding hues, expanded into named ramps. Locked steps marked ◆, n
 | | | | 050 | `#F4F6F5` |
 | | | | 000 | `#FBFCFC` |
 
-"Plum-charcoal" and "grey-green" above name the ramp's two ends in prose. Everywhere else in this document a step is named by its ramp position, `ink-NNN`, not by a nickname.
+"Plum-charcoal" (ink-990) and "grey-green" (ink-000) above name the ramp's two ends in prose. Everywhere else in this document a step is named by its ramp position, `ink-NNN`, not by a nickname.
 
 ### Rose (the single warm hue, accent and brand fill)
 
@@ -115,7 +115,7 @@ Four locked founding hues, expanded into named ramps. Locked steps marked ◆, n
 
 `#715A5A` rose-600 is called **rosewood** elsewhere in this document.
 
-> **rose-600 is a fill, not a text colour.** On dark surfaces use rose-350 `#B39B9B`; on light surfaces use rose-800 `#52403F`.
+> **rose-600 is a fill, not a text colour.** On dark surfaces use rose-350 `#B39B9B`. On light surfaces use rose-800 `#52403F`.
 
 ### Semantic hues (tuned into the palette, not stock)
 
@@ -128,7 +128,7 @@ Four locked founding hues, expanded into named ramps. Locked steps marked ◆, n
 
 ### Theme roles
 
-Light is **not** an inversion of dark. Surfaces climb the ink ramp; text drops to a dark ink step, not black.
+Light is **not** the inverse of dark. Surfaces climb the ink ramp. Text drops to a dark ink step, not to black.
 
 | Token | Dark | Light |
 |---|---|---|
@@ -152,11 +152,11 @@ Light is **not** an inversion of dark. Surfaces climb the ink ramp; text drops t
 | Arabic | **Amiri** | `--font-arabic` | Naskh. Used for حكمة in running text. The wordmark is Latin, set in Plus Jakarta Sans Bold at -0.5 tracking. |
 | Exam script | per implementation | `--font-exam-script` | The reference implementation targets the JLPT and uses **Noto Sans JP** at 400 / 500 / 700. An implementation for another exam substitutes the family its script needs. |
 
-**Scale** (1.25 major third from 16 up, whole px; 11 to 14 are hand-tuned, not ratio steps): 11 · 12 · 13 · 14 · **16** · 18 · 20 · 25 · 31 · 39 · 49 · 61. Token suffix is the literal px value: `--text-size-11` through `--text-size-61`.
+**Scale** (1.25 major third from 16 up, whole px. 11 to 14 are hand-tuned, not ratio steps): 11 · 12 · 13 · 14 · **16** · 18 · 20 · 25 · 31 · 39 · 49 · 61. Token suffix is the literal px value: `--text-size-11` through `--text-size-61`.
 
 **Line height:** `1.15` tight · `1.3` snug · `1.55` normal · **`1.85` CJK** · `2` loose. Tokens: `--leading-tight`, `--leading-snug`, `--leading-normal`, `--leading-cjk`, `--leading-loose`.
 
-**Mixed-script rhythm.** Latin body sets at 1.55. **Any block containing CJK text sets the whole block to 1.85**, and the two line heights never mix inside one paragraph. Match weights, not sizes: Jakarta 700 pairs with Noto 700. Amiri runs one step larger than its Latin neighbour.
+**Mixed-script rhythm.** Latin body sets at 1.55. **Any block containing CJK text sets the whole block to 1.85.** The two line heights never mix inside one paragraph. Match weights, not sizes: Jakarta 700 pairs with Noto 700. Amiri runs one step larger than its Latin neighbour.
 
 ## 7. Space, radius, motion
 
@@ -181,7 +181,7 @@ Band order runs cool to warm, easiest to hardest. The reference implementation m
 
 ## 9. Accessibility
 
-All body text meets **WCAG 2.1 AA (4.5:1)**; UI boundaries meet **3:1**.
+All body text meets **WCAG 2.1 AA (4.5:1)**. UI boundaries meet **3:1**.
 
 | Foreground | Background | Ratio |
 |---|---|---|
@@ -194,15 +194,15 @@ All body text meets **WCAG 2.1 AA (4.5:1)**; UI boundaries meet **3:1**.
 | `#8B9291` border | `#FFFFFF` light card | 3.17:1 |
 | `#FFFFFF` white | `#715A5A` accent fill | 6.34:1 |
 
-**Known failure, do not use:** `#715A5A` rosewood on `#44444E` ink-700 is **1.52:1**. Rosewood is never text on an ink surface; use `--accent-text` (rose-350 dark, rose-800 light).
+**Known failure, do not use:** `#715A5A` rosewood on `#44444E` ink-700 is **1.52:1**. Rosewood is never text on an ink surface. Use `--accent-text` instead (rose-350 dark, rose-800 light).
 
 ## 10. Licensing and attribution
 
 - **Two licences, two badges.** A dataset and the code that generated it are governed separately, and the interface renders them as two distinct `LicenseBadge` components. Never blend them into one mark, and never let a badge for one imply anything about the other.
-- **Each repository sets its own.** `core` is MIT and covers this document. An implementation chooses its own licence for its code and its dataset, and the MIT grant here does not extend to it. The reference implementation publishes its dataset under CC BY 4.0 and its pipeline code under MIT, which is a choice for that repository to state in its own words, not a rule this document imposes.
-- **Never label something "open source" that is not.** If a badge says MIT, Apache, or "open source", the licence file has to back it exactly, and an implementation under a different kind of licence states that licence's own name instead.
+- **Each repository sets its own.** `core` is MIT and covers this document. An implementation chooses its own licence for its code and its dataset, and the MIT grant here does not extend to it. The reference implementation publishes its dataset under CC BY 4.0 and its pipeline code under MIT. That is a choice for that repository to state in its own words, not a rule this document imposes.
+- **Never label something "open source" that is not.** If a badge says MIT, Apache, or "open source", the licence file must back it exactly. An implementation under a different kind of licence states that licence's own name instead.
 - **Fonts:** Plus Jakarta Sans, Noto Sans JP, Amiri, JetBrains Mono, all OFL. Ship the licence text alongside any font you bundle.
-- **Non-affiliation, on every public surface.** The wording is "Not affiliated with, endorsed by, or sponsored by [examining body]", naming the body the implementation targets. It belongs in the interface, not only in a README, and it must not be styled so faintly that readers miss it.
+- **Non-affiliation, on every public surface.** The wording is "Not affiliated with, endorsed by, or sponsored by [examining body]", naming the body the implementation targets. It belongs in the interface, not only in a README. It must not be styled so faintly that readers miss it.
 - **Exam names are trademarks of their owners** and appear in an implementation only to describe which exam it targets. See section 2 for what that permits and what it does not.
 
 ## 11. Using the tokens
@@ -224,6 +224,6 @@ All body text meets **WCAG 2.1 AA (4.5:1)**; UI boundaries meet **3:1**.
 }
 ```
 
-Token families: `--surface-*` and `--text-*` and `--border-*` and `--accent*` from section 5, `--font-*` and `--text-size-*` and `--leading-*` from section 6, `--space-*` and `--radius-*` and `--border-width-*` and `--duration-*` from section 7. Theme switching is a `data-theme` attribute on the root element, never a class, so that a server-rendered page can set it without a flash.
+Token families: `--surface-*` and `--text-*` and `--border-*` and `--accent*` from section 5, `--font-*` and `--text-size-*` and `--leading-*` from section 6, `--space-*` and `--radius-*` and `--border-width-*` and `--duration-*` from section 7. Theme switching uses a `data-theme` attribute on the root element, never a class, so that a server-rendered page can set it without a flash.
 
 Never hardcode a hex in product code. If a value you need has no token, add the token.
