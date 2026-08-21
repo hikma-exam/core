@@ -69,8 +69,8 @@ This system applies the rule to itself. The level badge hues in section 8 come f
 
 | Asset | File | Use |
 |---|---|---|
-| Monogram | [`logo-monogram.svg`](assets/logo-monogram.svg) | Avatars, favicons, ≥16px |
-| Wordmark | [`logo-wordmark.svg`](assets/logo-wordmark.svg) | Headers, README hero |
+| Monogram | [`logo-monogram.svg`](logos/logo-monogram.svg) | Avatars, favicons, ≥16px |
+| Wordmark | [`logo-wordmark.svg`](logos/logo-wordmark.svg) | Headers, README hero |
 | Mono / one-colour | `*-mono.svg` | Stamps, embroidery, single-ink print |
 
 The files ship with the reference implementation, not with this repository. `core` carries the specification of the mark instead, which follows below, so that a redrawn or re-exported version can be checked against it.
