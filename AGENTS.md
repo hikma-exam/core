@@ -7,7 +7,7 @@
 ## Scope
 
 - **Specification only.** `ARCHITECTURE.md` is the specification and `README.md` is its public summary. No pipeline code, no scripts, no dependencies, no lockfiles.
-- **`DESIGN.md` is a reference design system, not part of the specification.** It is a default for implementations to adopt, fork, or ignore, and it ships no stylesheet, font, or asset files, because those would be code. Do not add them here, and do not rewrite the document as though it bound anyone. Its section 2 is the exception: an implementation must never imitate the visual identity of the exam it targets, and that rule does not get softened, shortened, or moved into a footnote.
+- **`DESIGN.md` is a reference design system, not part of the specification.** It is a default for implementations to adopt, fork, or ignore. It ships no stylesheet, font, or code, because those would be an implementation. `assets/` is the one exception: it holds the canonical brand-mark SVGs (monogram, wordmark, and their mono variants) as reference, and this org's own repos use them directly from here. Do not add fonts, stylesheets, or anything beyond those SVGs to `assets/`, and do not rewrite the document as though it bound anyone. Section 2 is a further exception: an implementation must never imitate the visual identity of the exam it targets, and that rule does not get softened, shortened, or moved into a footnote.
 - **Implementations live elsewhere**, one repository per exam, each setting its own license. The MIT grant here does not extend to them.
 - **Public and MIT licensed.** Assume everything committed is read by people outside the project.
 
